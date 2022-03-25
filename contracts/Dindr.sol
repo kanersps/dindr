@@ -16,8 +16,8 @@ contract Dindr {
   mapping(address => User) public users;
 
   event NewUser(address user, string name);
-   
-   function register(string memory name) public {
+
+   function register(string memory name) external {
       require(users[msg.sender].isReal != true, "You already have an account!");
 
       users[msg.sender] = User({
