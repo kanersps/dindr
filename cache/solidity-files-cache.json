@@ -1,9 +1,9 @@
 {
   "_format": "hh-sol-cache-2",
   "files": {
-    "/Users/kanepetra/gitprojects/dinder/contracts/Dindr.sol": {
-      "lastModificationDate": 1647867758353,
-      "contentHash": "99c4a1bffc5275a1aa47108482732911",
+    "C:\\Users\\jaspe\\WebstormProjects\\dindr\\contracts\\Dindr.sol": {
+      "lastModificationDate": 1648201726275,
+      "contentHash": "63d8eec470b61122015e208c7600c75c",
       "sourceName": "contracts/Dindr.sol",
       "solcConfig": {
         "version": "0.8.9",
