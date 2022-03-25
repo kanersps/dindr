@@ -43,7 +43,7 @@ contract Dindr {
       emit NewUser(msg.sender, name);
    }
 
-  function findUserInArray(User[] memory users, string memory target) public returns(User memory user) {
+  function findUserInArray(User[] memory users, string memory target) private returns(User memory user) {
     for(uint256 i = 0; i < users.length; i++) {
       if(StringUtils.equal(users[i].addr, target)) {
         return users[i];
