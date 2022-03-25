@@ -6,10 +6,9 @@ pragma solidity >=0.7.3;
 
 // Defines a contract named `HelloWorld`.
 // A contract is a collection of functions and data (its state). Once deployed, a contract resides at a specific address on the Ethereum blockchain. Learn more: https://solidity.readthedocs.io/en/v0.5.10/structure-of-a-contract.html
-import "solidity-string-utils/StringUtils.sol";
+
 
 contract Dindr {
-  using StringUtils for *;
 
   struct User {
     string name;
@@ -24,14 +23,14 @@ contract Dindr {
   }
 
   mapping(address => User) public users;
-  mapping(address => string[]) public matches;
+  mapping(string => string[]) public matches;
 
   Chat[] chats;
 
   event NewUser(address user, string name);
   event Matched(User matched, User matchee);
    
-   function register(string memory name) public {
+   function register(string memory name) external {
       require(users[msg.sender].isReal != true, "You already have an account!");
 
       users[msg.sender] = User({
@@ -43,10 +42,10 @@ contract Dindr {
       emit NewUser(msg.sender, name);
    }
 
-  function findUserInArray(User[] memory users, string memory target) private returns(User memory user) {
-    for(uint256 i = 0; i < users.length; i++) {
-      if(StringUtils.equal(users[i].addr, target)) {
-        return users[i];
+  function findUserInArray(string memory target) private returns(User memory user) {
+    for(uint256 i = 0; i < matches[target].length; i++) {
+      if((keccak256(abi.encodePacked(matches[target][i].addr)) == keccak256(abi.encodePacked(target)))) {
+        return matches[target][i];
       }
     }
   }
