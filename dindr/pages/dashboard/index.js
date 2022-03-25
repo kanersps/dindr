@@ -1,7 +1,7 @@
+export default function Dashboard() {
+    const GetStack = () => {
 
-
-export default function Dashboard(){
-
+    }
     return <div>
 
     </div>
